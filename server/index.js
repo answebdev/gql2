@@ -9,7 +9,7 @@ const {
   GraphQLList,
 } = graphql;
 const { graphqlHTTP } = require('express-graphql');
-const PORT = 6969;
+const PORT = 4000;
 const userData = require('./MOCK_DATA.json');
 
 const UserType = new GraphQLObjectType({
