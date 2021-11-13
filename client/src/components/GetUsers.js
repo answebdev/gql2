@@ -16,7 +16,8 @@ function GetUsers() {
 
   return (
     <div>
-      {/* Display the first names: */}
+      {/* Display the first names
+      commented out since we don't need this here: */}
       {/* {users.map((item) => {
         return <h1 key={item.id}>{item.firstName}</h1>;
       })} */}
