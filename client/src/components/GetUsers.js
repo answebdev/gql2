@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { useQuery, gql } from '@apollo/client';
+import { LOAD_USERS } from '../GraphQL/Queries';
 
 function GetUsers() {
-    return(
-        <div>
+  const { error, loading, data } = useQuery(LOAD_USERS);
 
-        </div>
-    )
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
+  return <div>HELLO</div>;
 }
 
-export default GetUsers
+export default GetUsers;

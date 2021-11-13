@@ -7,12 +7,13 @@ import {
   from,
 } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
+import GetUsers from './components/GetUsers';
 
 // Error handling
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors) {
     graphqlErrors.map(({ message, location, path }) => {
-      alert(`GraphQL Error: ${message}`);
+      console.log(`Graphql error ${message}`);
     });
   }
 });
@@ -26,10 +27,15 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
   // The link to our backend / server:
   link: link,
+  //uri:"http://localhost:4000/graphql"
 });
 
 function App() {
-  return <ApolloProvider client={client}></ApolloProvider>;
+  return (
+    <ApolloProvider client={client}>
+      <GetUsers />
+    </ApolloProvider>
+  );
 }
 
 export default App;
