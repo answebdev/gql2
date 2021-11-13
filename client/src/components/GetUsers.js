@@ -4,12 +4,23 @@ import { LOAD_USERS } from '../GraphQL/Queries';
 
 function GetUsers() {
   const { error, loading, data } = useQuery(LOAD_USERS);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    console.log(data);
+    if (data) {
+      // console.log(data);
+      setUsers(data.getAllUsers);
+    }
   }, [data]);
 
-  return <div>HELLO</div>;
+  return (
+    <div>
+      {/* Display the first names: */}
+      {/* {users.map((item) => {
+        return <h1 key={item.id}>{item.firstName}</h1>;
+      })} */}
+    </div>
+  );
 }
 
 export default GetUsers;
